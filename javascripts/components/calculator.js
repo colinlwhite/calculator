@@ -10,18 +10,18 @@ const calc = {
 
 const calculate = (num1, num2, mathType) => {
     let answer = 0;
-    switch(mathType){
+    switch(calc.mathType){
         case 'multiply':
-            answer = multiply(num1, num2);
+            answer = multiply(calc.firstNumber, calc.secondNumber);
             break;
         case 'divide': 
-            answer = divide(num1, num2); 
+            answer = divide(calc.firstNumber, calc.secondNumber);
             break;
         case 'add': 
-            answer = add(num1, num2);
+            answer = add(calc.firstNumber, calc.secondNumber);
             break;
         case 'subtract':
-            answer = subtract(num1, num2);
+            answer = subtract(calc.firstNumber, calc.secondNumber);
             break;
             default:
             answer = 'nope';
@@ -33,6 +33,10 @@ const setDisplay = (someNumber) => {
     calc.display = someNumber;
     printToDom(calc.display, 'result');
 }
+
+const setMathType = (newMathType) => {
+    calc.mathType - newMathType;
+};
 
 const initialDisplay = () => {
     printToDom(0, 'result');
@@ -49,4 +53,4 @@ const addNumber = (num) => {
     }
 };
 
-export {calculate, addNumber, initialDisplay};
+export {calculate, addNumber, initialDisplay, setMathType};
